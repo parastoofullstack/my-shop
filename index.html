@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>فروشگاه سه‌بعدی</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style2.css" />
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- بک‌گراند سه‌بعدی -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- هدر -->
+  <header class="header glass">
+    <div class="logo">⬢ 3D Store</div>
+    <nav>
+      <a href="#hero">خانه</a>
+      <a href="#viewer">نمایشگر</a>
+      <a href="#products">محصولات</a>
+    </nav>
+    <button id="cart-btn" class="btn-outline">
+      🛒 سبد خرید <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <!-- هیرو -->
+  <section id="hero" class="hero">
+    <h1 class="gradient-text">آینده خرید، سه‌بعدی</h1>
+    <p>محصولات رو از همه طرف ببین و همین الان سفارش بده.</p>
+    <a href="#products" class="btn-primary">مشاهده محصولات</a>
+  </section>
+
+  <!-- نمایشگر سه‌بعدی محصول -->
+  <section id="viewer" class="section">
+    <h2 class="section-title">نمایشگر سه‌بعدی</h2>
+    <div class="viewer-wrapper glass">
+      <div class="viewer-info">
+        <h3 id="viewer-title">یک محصول انتخاب کن</h3>
+        <p id="viewer-desc">روی هر محصول کلیک کن تا اینجا بچرخه.</p>
+        <p class="hint">🖱 با ماوس بچرخونش و زوم کن</p>
+      </div>
+      <canvas id="viewer-canvas"></canvas>
+    </div>
+  </section>
+
+  <!-- لیست محصولات -->
+  <section id="products" class="section">
+    <h2 class="section-title">محصولات</h2>
+    <div id="product-grid" class="product-grid"></div>
+  </section>
+
+  <!-- سبد خرید -->
+  <aside id="cart-drawer" class="cart-drawer glass">
+    <div class="cart-header">
+      <h3>سبد خرید</h3>
+      <button id="close-cart" class="icon-btn">✕</button>
+    </div>
+    <div id="cart-items" class="cart-items"></div>
+    <div class="cart-footer">
+      <div class="total-row">
+        <span>جمع کل:</span>
+        <strong id="cart-total">0 تومان</strong>
+      </div>
+      <button id="checkout-btn" class="btn-primary full">ثبت سفارش</button>
+    </div>
+  </aside>
+
+  <!-- فرم سفارش -->
+  <div id="checkout-modal" class="modal hidden">
+    <div class="modal-content glass">
+      <div class="cart-header">
+        <h3>اطلاعات ارسال</h3>
+        <button id="close-modal" class="icon-btn">✕</button>
+      </div>
+      <form id="checkout-form">
+        <input type="text" name="name" placeholder="نام و نام خانوادگی" required />
+        <input type="tel" name="phone" placeholder="شماره موبایل" required />
+        <textarea name="address" placeholder="آدرس کامل" required></textarea>
+        <button type="submit" class="btn-primary full">پرداخت و ثبت سفارش</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- اعلان -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
